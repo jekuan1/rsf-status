@@ -71,7 +71,7 @@ export async function getRoomData(roomName: string, hours: number = 24) {
 }
 
 export const ROOMS = {
-  Total: { maxCapacity: 150, color: '#8b5cf6', displayName: 'Total' },
+  Total: { maxCapacity: 150, color: '#8b5cf6', displayName: 'RSF Total' },
   Main: { maxCapacity: 80, color: '#3b82f6', displayName: 'Main' },
   Extension: { maxCapacity: 40, color: '#10b981', displayName: 'Extension' },
   Annex: { maxCapacity: 30, color: '#f59e0b', displayName: 'Annex' },

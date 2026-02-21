@@ -3,7 +3,7 @@ import "@supabase/functions-js/edge-runtime.d.ts"
 import { createClient } from "jsr:@supabase/supabase-js@2"
 
 // Room configuration (fallback if not in env)
-const ROOM_NAMES = ["RSF Total", "Main Weight Room", "Extension", "Annex", "CMS"]
+const ROOM_NAMES = ["Total", "Main Weight Room", "Extension", "Annex", "CMS"]
 const MAX_CAPACITIES = [150, 80, 40, 30, 55]
 
 interface DensityResponse {

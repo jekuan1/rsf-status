@@ -168,7 +168,7 @@ export default function Dashboard() {
           {sortedCurrentData.map((room) => {
             const roomInfo = ROOMS[room.room_name as RoomName]
             const percentage = room.percentage
-            const status = percentage > 80 ? 'busy' : percentage > 50 ? 'moderate' : 'available'
+            const status = percentage >= 80 ? 'busy' : percentage > 50 ? 'moderate' : 'available'
             
             return (
               <div
@@ -236,7 +236,7 @@ export default function Dashboard() {
                   }`}
                   style={isVisible ? { backgroundColor: roomInfo.color } : {}}
                 >
-                  {room}
+                  {roomInfo.displayName}
                 </button>
               )
             })}
@@ -272,6 +272,18 @@ export default function Dashboard() {
               <Legend 
                 wrapperStyle={{ fontSize: 14 }}
                 iconType="line"
+                content={(props) => {
+                  return (
+                    <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '16px', marginTop: '8px' }}>
+                      {ROOM_NAMES.filter(name => visibleRooms.has(name)).map(name => (
+                        <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <div style={{ width: '16px', height: '2px', backgroundColor: ROOMS[name].color }} />
+                          <span style={{ fontSize: 14, color: '#374151' }}>{ROOMS[name].displayName}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )
+                }}
               />
               {ROOM_NAMES.map((name) => {
                 const info = ROOMS[name]
@@ -280,6 +292,7 @@ export default function Dashboard() {
                     key={name}
                     type="monotone"
                     dataKey={name}
+                    name={info.displayName}
                     stroke={info.color}
                     strokeWidth={2}
                     dot={false}
