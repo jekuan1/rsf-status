@@ -15,8 +15,6 @@ export async function getHistoricalData(hours: number = 24) {
   const startTime = new Date()
   startTime.setHours(startTime.getHours() - hours)
 
-  console.log('Querying historical data from:', startTime.toISOString())
-
   // Fetch data with pagination to get more than 1000 rows
   let allData: GymLog[] = []
   let from = 0
@@ -41,17 +39,10 @@ export async function getHistoricalData(hours: number = 24) {
     from += pageSize
   }
   
-  console.log(`Received ${allData.length} data points`)
-  if (allData.length > 0) {
-    console.log('Latest data point:', allData[allData.length - 1].created_at)
-  }
-  
   return allData as GymLog[]
 }
 
 export async function getIncrementalData(afterTimestamp: string) {
-  console.log('Fetching incremental data after:', afterTimestamp)
-  
   const { data, error } = await supabase
     .from('gym_logs')
     .select('*')
@@ -61,7 +52,6 @@ export async function getIncrementalData(afterTimestamp: string) {
 
   if (error) throw error
   
-  console.log(`Received ${data?.length || 0} new data points`)
   return data as GymLog[]
 }
 
