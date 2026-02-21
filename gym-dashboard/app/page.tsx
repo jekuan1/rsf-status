@@ -156,7 +156,7 @@ export default function Dashboard() {
         {/* Header */}
         <div className="mb-3 sm:mb-4">
           <h1 className="text-xl sm:text-3xl font-bold text-gray-900 mb-1">
-            RSF Gym Capacity Tracker
+            Berkeley RSF Gym Capacity Tracker
           </h1>
           <p className="text-xs sm:text-sm text-gray-600" suppressHydrationWarning>
             Last updated: {currentData.length > 0 ? format(new Date(currentData[0].created_at), 'h:mm a') : '--'}

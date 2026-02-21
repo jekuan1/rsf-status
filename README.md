@@ -1,4 +1,4 @@
-# RSF Gym Capacity Tracker
+# Berkeley RSF Gym Capacity Tracker
 
 Real-time gym capacity monitoring system.
 

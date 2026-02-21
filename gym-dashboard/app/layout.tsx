@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RSF Gym Capacity Tracker",
+  title: "Berkeley RSF Gym Capacity Tracker",
   description: "Real-time gym occupancy data for RSF facilities",
 };
 
